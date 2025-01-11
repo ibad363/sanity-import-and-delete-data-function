@@ -7,21 +7,21 @@ const sanityClient_js_1 = require("./sanityClient.js"); // Import your existing 
 async function deleteAllProducts() {
     try {
         // GROQ query to find all documents of type "product"
-        const query = '*[_type == "product"]';
+        const query = '*[_type == "inventory"]';
         // Fetch all products
         const products = await sanityClient_js_1.client.fetch(query);
         if (products.length === 0) {
-            console.log('No products found to delete.');
+            console.log('No inventory found to delete.');
             return;
         }
         // Map over the product IDs and create delete promises
         const deletePromises = products.map((product) => sanityClient_js_1.client.delete(product._id));
         // Await all delete operations
         await Promise.all(deletePromises);
-        console.log(`✅ Deleted ${products.length} products successfully!`);
+        console.log(`✅ Deleted ${products.length} inventory successfully!`);
     }
     catch (error) {
-        console.error('❌ Error deleting products:', error);
+        console.error('❌ Error deleting inventory:', error);
     }
 }
 deleteAllProducts();

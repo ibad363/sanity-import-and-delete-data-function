@@ -6,13 +6,13 @@ import { client } from './sanityClient.js'; // Import your existing Sanity clien
 async function deleteAllProducts() {
   try {
     // GROQ query to find all documents of type "product"
-    const query = '*[_type == "product"]';
+    const query = '*[_type == "inventory"]';
 
     // Fetch all products
     const products = await client.fetch(query);
 
     if (products.length === 0) {
-      console.log('No products found to delete.');
+      console.log('No inventory found to delete.');
       return;
     }
 
@@ -22,9 +22,9 @@ async function deleteAllProducts() {
     // Await all delete operations
     await Promise.all(deletePromises);
 
-    console.log(`✅ Deleted ${products.length} products successfully!`);
+    console.log(`✅ Deleted ${products.length} inventory successfully!`);
   } catch (error) {
-    console.error('❌ Error deleting products:', error);
+    console.error('❌ Error deleting inventory:', error);
   }
 }
 
