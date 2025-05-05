@@ -6,7 +6,7 @@ import { client } from './sanityClient.js'; // Import your existing Sanity clien
 async function deleteAllProducts() {
   try {
     // GROQ query to find all documents of type "product"
-    const query = '*[_type == "inventory"]';
+    const query = '*[_type == "product" && _createdAt >= "2025-05-05T15:27:55.675Z"]'; // delete product created before 4 hours by ISO String
 
     // Fetch all products
     const products = await client.fetch(query);

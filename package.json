@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "@sanity/client": "^6.24.1",
-    "axios": "^1.7.9"
+    "axios": "^1.7.9",
+    "nanoid": "^5.1.5"
   },
   "devDependencies": {
     "ts-node": "^10.9.2",

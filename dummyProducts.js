@@ -163,7 +163,7 @@ exports.dummyProducts = [
         ],
         hasVariants: false,
         baseMedia: ["https://m.media-amazon.com/images/I/71s8nikz44L.__AC_SX300_SY300_QL70_FMwebp_.jpg",
-            "https://m.media-amazon.com/images/I/91xfufD++3L._AC_SX679_.jpg0",
+            "https://m.media-amazon.com/images/I/91xfufD++3L._AC_SX679_.jpg",
             "https://m.media-amazon.com/images/I/81cXjL3ZV5L._AC_SX679_.jpg",
             "https://m.media-amazon.com/images/I/81ZdyspKAwL._AC_SX679_.jpg",
             "https://m.media-amazon.com/images/I/71yE4DqdiRL._AC_SX679_.jpg",

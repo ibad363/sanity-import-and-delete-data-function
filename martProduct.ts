@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { client } from './sanityClient.js';
 import { dummyProducts } from './dummyProducts.js';
+import { nanoid } from 'nanoid';
 
 async function uploadImageToSanity(imageUrl: string): Promise<string> {
   const response = await axios.get(imageUrl, { responseType: 'arraybuffer' });
@@ -21,11 +22,11 @@ function isVideo(url: string): boolean {
 
 async function importData() {
   // ⚙️ Step 0: Fetch all collections and build slug → real _id map
-   // 0) Fetch collections
-   const collections = await client.fetch(
+  // 0) Fetch collections
+  const collections = await client.fetch(
     `*[_type == "collection"]{ _id, "slug": slug.current }`
   );
-  const collectionMap: Record<string,string> = {};
+  const collectionMap: Record<string, string> = {};
   for (const col of collections) {
     collectionMap[col.slug] = col._id;
   }
@@ -37,6 +38,13 @@ async function importData() {
     for (const product of dummyProducts) {
       const docId = product.slug.current;
       const refSlug = product.collection._ref;
+
+      const descriptionWithKeys = Array.isArray(product.description)
+        ? product.description.map(block => ({
+          ...block,
+          _key: nanoid(),
+        }))
+        : [];
 
       // 🔍 DEBUG: show what we're about to look up
       console.log(`Looking up collection for product "${docId}" → slug: "${refSlug}"`);
@@ -54,6 +62,7 @@ async function importData() {
           try {
             const assetId = await uploadImageToSanity(url);
             baseMediaRefs.push({
+              _key: nanoid(),
               _type: isVideo(url) ? 'file' : 'image',
               asset: { _type: 'reference', _ref: assetId }
             });
@@ -72,6 +81,7 @@ async function importData() {
             try {
               const assetId = await uploadImageToSanity(url);
               mediaRefs.push({
+                _key: nanoid(),
                 _type: isVideo(url) ? 'file' : 'image',
                 asset: { _type: 'reference', _ref: assetId }
               });
@@ -80,6 +90,7 @@ async function importData() {
             }
           }
           variantsDocs.push({
+            _key: nanoid(),
             _type: 'variant',
             attributes: variant.attributes,
             stock: variant.stock,
@@ -96,7 +107,7 @@ async function importData() {
         _type: 'product',
         title: product.title,
         slug: { _type: 'slug', current: product.slug.current },
-        description: product.description,
+        description: descriptionWithKeys,
         hasVariants: product.hasVariants,
         // ▶️ Use the real ID here
         collection: { _type: 'reference', _ref: realCollectionId },
