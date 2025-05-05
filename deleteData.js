@@ -7,7 +7,7 @@ const sanityClient_js_1 = require("./sanityClient.js"); // Import your existing 
 async function deleteAllProducts() {
     try {
         // GROQ query to find all documents of type "product"
-        const query = '*[_type == "inventory"]';
+        const query = '*[_type == "product"]';
         // Fetch all products
         const products = await sanityClient_js_1.client.fetch(query);
         if (products.length === 0) {
