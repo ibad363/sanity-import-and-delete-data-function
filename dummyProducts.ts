@@ -367,6 +367,7 @@ export const dummyProducts = [
         averageRating: 4.6,
         totalReviewsCount: 91
     },
+    // ok niche wala
     {
         _type: "product",
         title: "Compact Bluetooth Speaker",
@@ -378,23 +379,24 @@ export const dummyProducts = [
             },
         ],
         hasVariants: true,
+        baseImages : [
+            "https://m.media-amazon.com/images/I/71zVs2oOgjL._AC_SX425_.jpg",
+            "https://m.media-amazon.com/images/I/71zVs2oOgjL._AC_SX425_.jpg",
+        ],
         variants: [
             {
                 attributes: [{ attributeName: "Color", attributeValue: "Red" }],
                 stock: 18,
                 price: 3200,
                 discountedPrice: 2899,
-                media: ["https://m.media-amazon.com/images/I/81JhkTsUioL._AC_SX425_.jpg",
-                    "https://m.media-amazon.com/images/I/71zVs2oOgjL._AC_SX425_.jpg",
-                    "https://m.media-amazon.com/images/I/71zVs2oOgjL._AC_SX425_.jpg",
-                ]
+                image: "https://m.media-amazon.com/images/I/81JhkTsUioL._AC_SX425_.jpg"
             },
             {
                 attributes: [{ attributeName: "Color", attributeValue: "Blue" }],
                 stock: 14,
                 price: 3200,
                 discountedPrice: 2899,
-                media: ["https://m.media-amazon.com/images/I/81srH0p58IL._AC_SX425_.jpg"]
+                image: "https://m.media-amazon.com/images/I/81srH0p58IL._AC_SX425_.jpg"
             }
         ],
         collection: { _type: "reference", _ref: "electronics" },
@@ -417,7 +419,7 @@ export const dummyProducts = [
             },
         ],
         hasVariants: false,
-        baseMedia: ["https://m.media-amazon.com/images/I/71zVDwU6xeL._AC_SX679_.jpg",
+        baseImages: ["https://m.media-amazon.com/images/I/71zVDwU6xeL._AC_SX679_.jpg",
             "https://m.media-amazon.com/images/I/81da1ZZwaQL._AC_SX679_.jpg",
             "https://m.media-amazon.com/images/I/81N2fUqLRGL._AC_SX679_.jpg",
             "https://m.media-amazon.com/images/I/711P1azZD1L._AC_SX679_.jpg",
@@ -447,27 +449,26 @@ export const dummyProducts = [
             },
         ],
         hasVariants: true,
+        baseImages: ["https://m.media-amazon.com/images/I/81Rt9yDAqxL._AC_SX679_.jpg",
+                    "https://m.media-amazon.com/images/I/913u8NrqjYL._AC_SX679_.jpg",
+                    "https://m.media-amazon.com/images/I/91ttvdU3FDL._AC_SX679_.jpg",
+                    "https://m.media-amazon.com/images/I/81HJmEG5UOL._AC_SX679_.jpg",
+                "https://m.media-amazon.com/images/I/81JjMSvkaNL._AC_SX679_.jpg",
+                    "https://m.media-amazon.com/images/I/71cy2USQhzL._AC_SX679_.jpg"],
         variants: [
             {
                 attributes: [{ attributeName: "Size", attributeValue: "5x7" }],
                 stock: 6,
                 price: 4800,
                 discountedPrice: 4299,
-                media: ["https://m.media-amazon.com/images/I/81Rt9yDAqxL._AC_SX679_.jpg",
-                    "https://m.media-amazon.com/images/I/913u8NrqjYL._AC_SX679_.jpg",
-                    "https://m.media-amazon.com/images/I/91ttvdU3FDL._AC_SX679_.jpg",
-                    "https://m.media-amazon.com/images/I/81HJmEG5UOL._AC_SX679_.jpg"
-                ]
+                image: "https://m.media-amazon.com/images/I/81HJmEG5UOL._AC_SX679_.jpg"
             },
             {
                 attributes: [{ attributeName: "Size", attributeValue: "5x8" }],
                 stock: 4,
                 price: 6400,
                 discountedPrice: 5999,
-                media: ["https://m.media-amazon.com/images/I/91IROdliwJL._AC_SX679_.jpg",
-                    "https://m.media-amazon.com/images/I/81JjMSvkaNL._AC_SX679_.jpg",
-                    "https://m.media-amazon.com/images/I/71cy2USQhzL._AC_SX679_.jpg"
-                ]
+                image: "https://m.media-amazon.com/images/I/91IROdliwJL._AC_SX679_.jpg",
             }
         ],
         collection: { _type: "reference", _ref: "home-and-decor" },
@@ -490,7 +491,7 @@ export const dummyProducts = [
             },
         ],
         hasVariants: false,
-        baseMedia: ["https://m.media-amazon.com/images/I/71awBPNle4L._AC_SX679_.jpg"],
+        baseImages: ["https://m.media-amazon.com/images/I/71awBPNle4L._AC_SX679_.jpg"],
         baseOriginalPrice: 2400,
         baseDiscountedPrice: 2199,
         baseStock: 22,
@@ -514,7 +515,7 @@ export const dummyProducts = [
             },
         ],
         hasVariants: false,
-        baseMedia: ["https://m.media-amazon.com/images/I/617+krmoROL._AC_SX679_.jpg",
+        baseImages: ["https://m.media-amazon.com/images/I/617+krmoROL._AC_SX679_.jpg",
             "https://m.media-amazon.com/images/I/71SdcTiau1L._AC_SX679_.jpg",
             "https://m.media-amazon.com/images/I/71Ganilip5L._AC_SX679_.jpg",
             "https://m.media-amazon.com/images/I/71VNe506lcL._AC_SX679_.jpg",
